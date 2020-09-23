@@ -1,10 +1,10 @@
-#include <SFML/Graphics.hpp>
+п»ї#include <SFML/Graphics.hpp>
 #include <cmath>
 
-//размер окна
-const float width = 1000; //ширина 
-const float height = 600; //длина 
-//размер фигуры
+//СЂР°Р·РјРµСЂ РѕРєРЅР°
+const float width = 1000; //С€РёСЂРёРЅР° 
+const float height = 600; //РґР»РёРЅР° 
+//СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹
 int rectH = height / 20;
 int rectW = width / 20;
 
@@ -15,7 +15,7 @@ public:
     float x, y, speed;
     sf::FloatRect rectangle;
     bool flag;
-    //Позиция и размер фигуры
+    //РџРѕР·РёС†РёСЏ Рё СЂР°Р·РјРµСЂ С„РёРіСѓСЂС‹
     Object()
     {
        
@@ -23,16 +23,16 @@ public:
         object.setFillColor(sf::Color(255, 0, 0));
         figure = object;
         rectangle.width = width / 2.7;
-        rectangle.height = height / 1.9;//высота
+        rectangle.height = height / 1.9;//РІС‹СЃРѕС‚Р°
         x = 50;
         y = 5;
         speed = 0;
     }
    
-    //Движение объекта в центре экрана по синусоиде
+    //Р”РІРёР¶РµРЅРёРµ РѕР±СЉРµРєС‚Р° РІ С†РµРЅС‚СЂРµ СЌРєСЂР°РЅР° РїРѕ СЃРёРЅСѓСЃРѕРёРґРµ
     void moving(float t)
     {
-        if (rectangle.width + 450 <= width && flag)//ограниечение справа
+        if (rectangle.width + 450 <= width && flag)//РѕРіСЂР°РЅРёРµС‡РµРЅРёРµ СЃРїСЂР°РІР°
         {
             speed = t;
             rectangle.width += x * speed;
@@ -40,7 +40,7 @@ public:
             rectangle.height -= y * speed;
         }
         else flag = false;
-        if (rectangle.width >= 270 && !flag)//ограничение слева
+        if (rectangle.width >= 270 && !flag)//РѕРіСЂР°РЅРёС‡РµРЅРёРµ СЃР»РµРІР°
         {
             speed = t;
             rectangle.width -= x * speed;
@@ -55,23 +55,23 @@ public:
 
 int main()
 {
-    //название окна
+    //РЅР°Р·РІР°РЅРёРµ РѕРєРЅР°
     sf::RenderWindow window(sf::VideoMode(width, height), "Laboratory work 1 ( option 13) ");
     Object lastRect;
     sf::Clock clock;
-    //начало траектории
+    //РЅР°С‡Р°Р»Рѕ С‚СЂР°РµРєС‚РѕСЂРёРё
     sf::VertexArray point(sf::Points, 2500);
     double x = 5.2;
-    double n = 0.24; // плотность кривой
-    int H = height-660; // высота кривой
-    double d = 0.02; // плотность точек
+    double n = 0.24; // РїР»РѕС‚РЅРѕСЃС‚СЊ РєСЂРёРІРѕР№
+    int H = height-660; // РІС‹СЃРѕС‚Р° РєСЂРёРІРѕР№
+    double d = 0.02; // РїР»РѕС‚РЅРѕСЃС‚СЊ С‚РѕС‡РµРє
     for (int i = 1290; i < 2340; i++)
     {
         point[i].position = sf::Vector2f(i * n, height / 2 - H * sin(x));
         point[i].color = sf::Color(255, 0, 0);
         x += d;
     }
-    //конец траектории
+    //РєРѕРЅРµС† С‚СЂР°РµРєС‚РѕСЂРёРё
     while (window.isOpen())
     {
         float time = clock.getElapsedTime().asSeconds();
