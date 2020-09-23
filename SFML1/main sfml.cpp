@@ -55,6 +55,7 @@ public:
 
 int main()
 {
+    //ыввываы
     //название окна
     sf::RenderWindow window(sf::VideoMode(width, height), "Laboratory work 1 ( option 13) ");
     Object lastRect;
