@@ -54,37 +54,26 @@ public:
 class Pathway
 {
 
-public:
-    sf::VertexArray point;
-    Pathway()
-    {
-        sf::VertexArray p(sf::Points, 2500);
-        point = p;
-    }
-    void mov_point()
-    {
-        //начало траектории
-        double x = 5.2;
-        double n = 0.24; // плотность кривой
-        int H = height - 660; // высота кривой
-        double d = 0.02; // плотность точек
-        for (int i = 1290; i < 2340; i++)
-        {
-            point[i].position = sf::Vector2f(i * n, height / 2 - H * sin(x));
-            point[i].color = sf::Color(255, 0, 0);
-            x += d;
-        }
-        //конец траектории
-    } 
-};
 int main()
 {
-    
+    //ыввываы
     //название окна
     sf::RenderWindow window(sf::VideoMode(width, height), "Laboratory work 1 ( option 13) ");
     Object lastRect;
-    Pathway poi;
     sf::Clock clock;
+    //начало траектории
+    sf::VertexArray point(sf::Points, 2500);
+    double x = 5.2;
+    double n = 0.24; // плотность кривой
+    int H = height-660; // высота кривой
+    double d = 0.02; // плотность точек
+    for (int i = 1290; i < 2340; i++)
+    {
+        point[i].position = sf::Vector2f(i * n, height / 2 - H * sin(x));
+        point[i].color = sf::Color(255, 0, 0);
+        x += d;
+    }
+    //конец траектории
     while (window.isOpen())
     {
         float time = clock.getElapsedTime().asSeconds();
