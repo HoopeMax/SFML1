@@ -1,6 +1,6 @@
 ﻿#include <SFML/Graphics.hpp>
 #include <cmath>
-
+#include<iostream>
 //размер окна
 const float width = 1000; //ширина 
 const float height = 600; //длина 
@@ -53,7 +53,6 @@ public:
 };
 class Pathway
 {
-
 public:
     sf::VertexArray point;
     Pathway()
@@ -61,7 +60,7 @@ public:
         sf::VertexArray p(sf::Points, 2500);
         point = p;
     }
-    void mov_point()
+    void array_point()
     {
         //начало траектории
         double x = 5.2;
@@ -96,13 +95,13 @@ int main()
                 window.close();
         }
         lastRect.moving(time);
-        poi.mov_point();
+        poi.array_point();
         window.clear(sf::Color(0, 0, 0));
-        window.draw(lastRect.figure);
         for (int i = 1290; i < 2340; i++)
         {
             window.draw(poi.point);
         }
+        window.draw(lastRect.figure);
         window.display();
     }
     return 0;
