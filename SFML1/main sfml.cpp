@@ -1,4 +1,5 @@
-﻿#include <SFML/Graphics.hpp>
+﻿
+#include <SFML/Graphics.hpp>
 #include <cmath>
 #include<iostream>
 //размер окна
