@@ -4,26 +4,31 @@
 //размер окна
 const float width = 1000; //ширина 
 const float height = 600; //длина 
-//размер фигуры
-int rectH = height / 20;
-int rectW = width / 20;
-
-class Object
+class Point_Figure
+{
+public://точка расположение в центре экрана 
+    float a = width / 2.7;
+    float b = height / 1.9;
+};
+class Line_Figure: public Point_Figure
+{
+public:
+ //размер фигуры от заданной точки 
+int rectH = (a/10);
+int rectW = (b/5);
+}; 
+class Object:public Line_Figure 
 {
 public:
     sf::RectangleShape figure;
     float x, y, speed;
-    sf::FloatRect rectangle;
     bool flag;
     //Позиция и размер фигуры
     Object()
     {
-
         sf::RectangleShape object(sf::Vector2f(rectW, rectH));
         object.setFillColor(sf::Color(255, 0, 0));
         figure = object;
-        rectangle.width = width / 2.7;
-        rectangle.height = height / 1.9;//высота
         x = 50;
         y = 5;
         speed = 0;
@@ -31,24 +36,25 @@ public:
     //Движение объекта в центре экрана по синусоиде
     void moving(float t)
     {
-        if (rectangle.width + 450 <= width && flag)//ограниечение справа
+        if (a + 450 <= width && flag)//ограниечение справа
         {
             speed = t;
-            rectangle.width += x * speed;
-            y = cos(rectangle.width * (3, 14) / 180) * 250;
-            rectangle.height -= y * speed;
+            a += x * speed;
+            y = cos(a * (3, 14) / 180) * 250;
+            b-= y * speed;
         }
         else flag = false;
-        if (rectangle.width >= 270 && !flag)//ограничение слева
+        if (a >= 270 && !flag)//ограничение слева
         {
             speed = t;
-            rectangle.width -= x * speed;
-            y = cos(rectangle.width * (3, 14) / 180) * 250;
-            rectangle.height += y * speed;
+            a -= x * speed;
+            y = cos(a * (3, 14) / 180) * 250;
+            b += y * speed;
         }
         else flag = true;
         speed = 0;
-        figure.setPosition(rectangle.width, rectangle.height);
+        figure.setPosition(a, b);
+
     }
 };
 class Pathway
@@ -76,13 +82,22 @@ public:
         //конец траектории
     }
 };
+void input();
+
 int main()
 {
+    input();
+    return 0;
+}
 
+void input()
+{
     //название окна
     sf::RenderWindow window(sf::VideoMode(width, height), "Laboratory work 1 ( option 13) ");
-    Object lastRect;
-    Pathway poi;
+    Object* lastRect = new Object;
+    Pathway* poi = new Pathway;
+    //Object lastRect;
+    //Pathway poi;
     sf::Clock clock;
     while (window.isOpen())
     {
@@ -94,15 +109,19 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        lastRect.moving(time);
-        poi.array_point();
+        lastRect->moving(time);
+        poi->array_point();
+        /* lastRect.moving(time);
+         poi.array_point();*/
         window.clear(sf::Color(0, 0, 0));
         for (int i = 1290; i < 2340; i++)
         {
-            window.draw(poi.point);
+            window.draw(poi->point);
+            //window.draw(poi.point);
         }
-        window.draw(lastRect.figure);
+        window.draw(lastRect->figure);
+        //window.draw(lastRect.figure);
         window.display();
+
     }
-    return 0;
 }
