@@ -21,11 +21,5 @@
     <ClCompile Include="main sfml.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Static.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\Dynamic.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
