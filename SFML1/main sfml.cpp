@@ -1,7 +1,7 @@
 ﻿
 #include <SFML/Graphics.hpp>
 #include <cmath>
-#include<iostream>
+#include <iostream>
 //размер окна
 const float width = 1000; //ширина 
 const float height = 600; //длина 
