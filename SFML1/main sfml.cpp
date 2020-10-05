@@ -1,4 +1,5 @@
-﻿//вторая ветвь 
+﻿
+//вторая ветвь 
 #include <SFML/Graphics.hpp>
 #include <cmath>
 #include<iostream>
@@ -130,10 +131,10 @@ void input()
 {
     //название окна
     sf::RenderWindow window(sf::VideoMode(width, height), "Laboratory work 1 ( option 13) ");
+
     Object* lastRect = new Object;
     Pathway* poi = new Pathway;
-    //Object lastRect;
-    //Pathway poi;
+
     sf::Clock clock;
     while (window.isOpen())
     {
@@ -150,15 +151,13 @@ void input()
 
         lastRect->moving(time);
         poi->array_point();
-        /* lastRect.moving(time);
-         poi.array_point();*/
 
 
         window.clear(sf::Color(0, 0, 0));
         for (int i = 1290; i < 2340; i++)
         {
             window.draw(poi->point);
-            //window.draw(poi.point);
+
         }
 
       //рисуются объекты
@@ -167,11 +166,6 @@ void input()
         window.draw(lastRect->figure2);
         window.draw(lastRect->figure3);
         window.draw(lastRect->mainfigure);
-   
-        //window.draw(lastRect.figure);
-        //window.draw(lastRect.figure1);
-        //window.draw(lastRect.figure2);
-        //window.draw(lastRect.figure3);
 
         window.display();
 
