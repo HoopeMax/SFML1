@@ -165,6 +165,7 @@ void input()
         window.draw(lastRect.figure1);
         window.draw(lastRect.figure2);
         window.draw(lastRect.figure3);
+        window.draw(lastRect.mainfigure);
 
         window.display();
 
