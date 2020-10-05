@@ -142,8 +142,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\Dynamic.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\Static.cpp" />
     <ClCompile Include="main sfml.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
