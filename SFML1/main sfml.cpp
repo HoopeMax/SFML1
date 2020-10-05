@@ -102,21 +102,21 @@ public:
         sf::VertexArray p(sf::Points, 2500);
         point = p;
     }
-    void array_point()
-    {
-        //начало траектории
-        double x = 5.2;
-        double n = 0.26; // плотность кривой
-        int H = height - 660; // высота кривой
-        double d = 0.02; // плотность точек
-        for (int i = 1290; i < 2340; i++)
-        {
-            point[i].position = sf::Vector2f(i * n, height / 2 - H * sin(x));
-            point[i].color = sf::Color(255, 0, 0);
-            x += d;
-        }
-        //конец траектории
-    }
+    //void array_point()
+    //{
+    //    //начало траектории
+    //    double x = 5.2;
+    //    double n = 0.25; // плотность кривой
+    //    int H = height - 660; // высота кривой
+    //    double d = 0.02; // плотность точек
+    //    for (int i = 1290; i < 2340; i++)
+    //    {
+    //        point[i].position = sf::Vector2f(i * n, height / 2 - H * sin(x));
+    //        point[i].color = sf::Color(255, 0, 0);
+    //        x += d;
+    //    }
+    //    //конец траектории
+    //}
 };
 void input();
 //Движение объекта в центре экрана по синусоиде
@@ -150,7 +150,7 @@ void input()
 
 
         lastRect->moving(time);
-        poi->array_point();
+        //poi->array_point();
 
 
         window.clear(sf::Color(0, 0, 0));
@@ -168,6 +168,8 @@ void input()
         window.draw(lastRect->mainfigure);
 
         window.display();
-
     }
+
+    delete lastRect;
+    delete poi;
 }
