@@ -10,7 +10,7 @@ const float height = 600; //длина
 
 class Point_Figure
 {
-public:
+protected:
     //координаты 
     float a = width / 2.7;
     float b = height / 1.9;
@@ -106,7 +106,7 @@ public:
     {
         //начало траектории
         double x = 5.2;
-        double n = 0.24; // плотность кривой
+        double n = 0.26; // плотность кривой
         int H = height - 660; // высота кривой
         double d = 0.02; // плотность точек
         for (int i = 1290; i < 2340; i++)
